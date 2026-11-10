@@ -17,6 +17,7 @@
 - Vật thể bị che khuất: vẫn gán box nếu phần nhìn thấy còn đủ để xác định lớp; box chỉ ôm **phần nhìn thấy**, không đoán phần bị cột đèn, cây hay xe khác che. Xe bị chia thành hai mảnh rời do vật che thì vẫn là **một** box bao phần nhìn thấy, không tách thành hai.
 - Vật thể bị cắt bởi rìa ảnh: vẫn gán; cạnh box đặt đúng tại mép ảnh (x = 0, y = 0, x = W hoặc y = H), không đoán phần nằm ngoài khung.
 - Vật thể rất nhỏ/mơ hồ: nếu phần nhìn thấy quá nhỏ hoặc quá nhòe để xác định chắc chắn thuộc lớp nào trong bốn lớp, **không đoán** — bỏ qua và ghi lại ảnh đó vào bảng dưới để hỏi giảng viên. Không gán người đi bộ, xe đạp, mô tô/xe máy, biển báo, đèn giao thông, xe trong ảnh quảng cáo hay xe phản chiếu trên kính.
+- **Ngưỡng kích thước tối thiểu (bổ sung ở vòng QC):** xe có cạnh ngắn của box dưới **20 px** (ảnh 640×640) thì không gán. Ở cỡ đó không còn đọc được đường nóc hay cabin để phân biệt `car` với `van`, nên gán vào là đoán — cùng lý lẽ với ca `drive_035`. Luật này được thêm sau khi đối chiếu gold: 374 box thuộc diện này đã bị gỡ khỏi bộ nhãn, số liệu trước/sau ghi trong báo cáo.
 
 ## Ghi lại quyết định cho ít nhất ba ca mơ hồ
 
